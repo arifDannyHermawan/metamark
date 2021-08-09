@@ -1,23 +1,23 @@
  <template>
   <div class="page">
     <div v-if="page">
-      <label for="title">Title</label>
+      <!-- <label for="title">Title</label>
       <input
         type="text"
         v-model="page.title"
         class="title"
         name="title"
         placeholder="Enter a title"
-      />
-      <label for="content">Content</label>
+      /> -->
+      <label for="content"></label>
       <textarea
-        class="content"
-        name="content"
-        v-model="page.content"
-        placeholder="Enter some content"
+        class="note"
+        name="note"
+        v-model="page.note"
+        placeholder="Enter some note"
       ></textarea>
-      <button @click="deletePage()">Delete Page</button>
-      <button @click="savePage()">Save Page</button>
+      <button @click="deleteNote()">Delete Note</button>
+      <button @click="saveNote()">Save Note</button>
     </div>
     <div v-else>
       <h1>&larr; To start, create a new page!</h1>
@@ -30,11 +30,11 @@ export default {
   name: "Page",
   props: ["page"],
   methods: {
-    deletePage() {
-      this.$emit("delete-page");
+    deleteNote() {
+      this.$emit("delete-note");
     },
-    savePage() {
-      this.$emit("save-page");
+    saveNote() {
+      this.$emit("save-note");
     },
   },
 };
@@ -43,12 +43,11 @@ export default {
 <style scoped>
 .page {
   width: 100%;
-  padding: 2rem;
+  padding: 4rem;
   box-shadow: 3rem 0 5rem 3rem #c1f5ff;
 }
 
-.content,
-.title {
+.note {
   border-style: none;
   border-radius: 0.25rem;
   border: solid 1px lightgray;
@@ -57,22 +56,16 @@ export default {
   margin-bottom: 1.25rem;
 }
 
-.content:focus,
-.title:focus {
+.note:focus {
   outline: 0;
 }
 
-.content {
+.note {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   resize: vertical;
   font-size: 1.5rem;
   padding: 0.5rem;
   height: 20rem;
-}
-
-.title {
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
 }
 
 label {

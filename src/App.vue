@@ -31,8 +31,7 @@ export default {
   methods: {
     newPage() {
       this.pages.push({
-        title: "",
-        content: "",
+        note: "",
       });
       this.index = this.pages.length - 1;
     },
@@ -40,7 +39,7 @@ export default {
       this.index = index;
     },
     savePage() {
-      // nothing as of yet
+      
     },
     deletePage() {
       this.pages.splice(this.index, 1);
@@ -55,6 +54,7 @@ html,
 body,
 #app {
   height: 100%;
+  width: 100%;
 }
 
 body {
